@@ -1,0 +1,85 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} My Portfolio {% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    {% tailwind_css %}
+
+    <!--Google Font to be selected and imported below-->
+
+    <!--Optional Custom Styles to be imported below-->
+
+</head>
+
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow">
+        <div class="max-w-7x1 mx-auto px-4 flex justify-between items-center">
+            <a href="{% url 'about' %}" class="text-2xl font-bold text-gray-800 hover:text-gray-600">My Portfolio</a>
+            <div class="space-x-4">
+                <a href="{% url 'about' %}" class="text-gray-600 hover:text-gray-800">About</a>
+                <a href="{% url 'projects' %}" class="text-gray-600 hover:text-gray-800">Projects</a>
+                <a href="{% url 'contact' %}" class="text-gray-600 hover:text-gray-800">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        {% block content %}
+        <!-- Page specific content goes here -->
+        {% endblock %}
+    </main>
+    <!-- Footer content -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="max-w-7xl mx-auto flex justify-center space-x-6">
+            <div class="flex space-x-6 mb-2">
+                <!-- GitHub Icon -->
+                <a href="https://github.com/x-lamprocapnos-x" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white hover:text-gray-400"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12 0C5.37 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.42-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.931 0-1.31.467-2.381 1.235-3.221-.124-.303-.535-1.527.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.289-1.552 3.294-1.23 3.294-1.23.655 1.649.244 2.873.12 3.176.77.84 1.232 1.911 1.232 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.103.823 2.222v3.293c0 .322.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+
+                <!-- LinkedIn Icon -->
+                <a href="https://www.linkedin.com/in/ashobencfs/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white hover:text-gray-400"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.02c1.64 0 2.98-1.34 2.98-2.98C7.98 4.84 6.64 3.5 4.98 3.5zM2.4 21.5h5.16v-12H2.4v12zM9.34 9.5h4.94v1.71h.07c.69-1.3 2.38-2.67 4.91-2.67 5.25 0 6.22 3.46 6.22 7.96v9H20.3v-8.01c0-1.91-.03-4.36-2.66-4.36-2.66 0-3.07 2.08-3.07 4.22v8.15H9.34v-16z" />
+                    </svg>
+                </a>
+
+                <!-- CodePen Icon -->
+                <a href="https://codepen.io/x-lamprocapnos-x" target="_blank" aria-label="CodePen">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white hover:text-gray-400"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M21.438 8.141l-9-6a.999.999 0 00-1.125 0l-9 6A1 1 0 002 9v6a1 1 0 00.438.859l9 6a.997.997 0 001.125 0l9-6A1 1 0 0022 15V9a1 1 0 00-.562-.859zM12 4.15l7.197 4.8L15.403 12l3.794 3.05L12 19.85 4.803 15.05 8.597 12 4.803 8.95 12 4.15zM4 10.403L7.197 12 4 13.597v-3.194zM12 17.85v-3.747l3.394-2.703 3.803 3.05L12 17.85zM12 10.897L8.606 8.194 12 5.85l3.394 2.344L12 10.897zm-1 3.206v3.747l-7.197-4.8 3.803-3.05L11 14.103zm1-3.206l3.394-2.703L20 10.403v3.194L15.394 12 12 10.897z" />
+                    </svg>
+                </a>
+
+                <!-- X Icon -->
+                <a href="https://x.com/_lamprocapnos_" target="_blank" aria-label="X">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white hover:text-gray-400"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M19.615 3H4.385A1.385 1.385 0 003 4.385v15.23C3 20.35 3.65 21 4.385 21h15.23c.735 0 1.385-.65 1.385-1.385V4.385C21 3.65 20.35 3 19.615 3zm-3.138 14.308l-2.846-3.995-2.846 3.995H8.308l3.994-5.539-3.994-5.538h2.477l2.846 3.994 2.846-3.994h2.477l-3.994 5.538 3.994 5.539h-2.477z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <p class="text-center mt-2 text-sm">2025 Ashley Shoben. All rights reserved.</p>
+    </footer>
+    {% block extra_scripts %}{% endblock %}
+</body>
+
+</html>
