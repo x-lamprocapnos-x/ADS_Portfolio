@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Me{% endblock %}
+
+{% block content %}
+
+<section class="max-w-3x1 mx-auto px-4 py-12">
+    <div class="flex flex-col md:flex-row md:space-x-8 items-center">
+        <div>
+            <img src="{% static 'images/ashley-photo.jpg' %}" alt="Photo of Ashley"
+                class="rounded-full w-72 mx-auto shadow-lg">
+            <h1 class="text-3xl font-bold mb-6 text-center">Hello, I'm Ashley</h1>
+        </div>
+
+        <div class="w-full md:w-2/3">
+            <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+            <table class="min-w-full text-left text-gray-700">
+                <thead class="border-b font-medium">
+                    <tr>
+                        <th scope="col" class="px-6 py-2">Language/Technology</th>
+                        <th scope="col" class="px-6 py-2">Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="px-6 py-2">Python</td>
+                        <td class="px-6 py-2">Intermediate</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="px-6 py-2">Django</td>
+                        <td class="px-6 py-2">Beginner</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="px-6 py-2">Tailwind CSS</td>
+                        <td class="px-6 py-2">Beginner</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="px-6 py-2">HTML & CSS</td>
+                        <td class="px-6 py-2">Moderate</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="px-6 py-2">Node</td>
+                        <td class="px-6 py-2">Intermediate</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="px-6 py-2">Javascript</td>
+                        <td class="px-6 py-2">Intermediate</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-12">
+        <p class="mb-4">
+            I’m an aspiring web developer with a lifelong curiosity about how things work. My first introduction to web
+            development and computer science came in seventh grade, where I began exploring AutoCAD and programming
+            through Khan Academy. However, due to changing schools, I had to make a difficult choice between continuing
+            with computer science or pursuing collision repair. I chose collision repair and spent time working in
+            automotive collision shops, only to discover I saw no future in that field.
+        </p>
+
+        <p class="mb-4">
+            After that, I transitioned into retail and eventully found myself working in medical manufacturing. It was
+            there I realized I wanted to do more than just be an able body - I wanted to create and build solutions that
+            have
+            a real impact. Remembering how much I enjoyed coding years ago, I decided to pursue this passion seriously
+            and
+            enrolled in an online course to study web development.
+        </p>
+
+        <p class="mb-4">
+            Currently, I work full-time building medical products while dedicating my evenings to expanding my
+            programming skills. I've always been someone who juggles multiple responsibilites, striving to understand
+            the world
+            around me and contribute meaningfully wherever I can.
+        </p>
+
+        <p class="mb-4">
+            My goal is to become confident in backend programming languages while maintaining a strong understanding of
+            frontend technologies to create full projects independently. I am particularly drawn to backend development
+            because of my attention to detail and love for structured problem-solving. While I value design, I find deep
+            satisfaction in building the foundational systems that make the application work.
+        </p>
+
+        <p class="mb-4">
+            I am seeking entry-level opportunities in server-side development where I can continue to grow, collaborate
+            with talented teams, and contribute to meaningful projects. What drives me is the sense of accomplishment
+            that
+            comes from solving problems and creating tools that make life easier for others. I want to wake up every day
+            knowing I am making a difference, even in small strides, by bringing ideas to life through code.
+        </p>
+    </div>
+</section>
+{% endblock %}
