@@ -144,3 +144,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# Media files (user uploaded data ie. case study images)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
