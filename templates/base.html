@@ -21,11 +21,12 @@
     <!-- Navigation Bar -->
     <nav class="bg-white shadow">
         <div class="max-w-7x1 mx-auto px-4 flex justify-between items-center">
-            <a href="{% url 'about' %}" class="text-2xl font-bold text-gray-800 hover:text-gray-600">My Portfolio</a>
+            <a href="{% url 'main:about' %}" class="text-2xl font-bold text-gray-800 hover:text-gray-600">My
+                Portfolio</a>
             <div class="space-x-4">
-                <a href="{% url 'about' %}" class="text-gray-600 hover:text-gray-800">About</a>
-                <a href="{% url 'projects' %}" class="text-gray-600 hover:text-gray-800">Projects</a>
-                <a href="{% url 'contact' %}" class="text-gray-600 hover:text-gray-800">Contact</a>
+                <a href="{% url 'main:about' %}" class="text-gray-600 hover:text-gray-800">About</a>
+                <a href="{% url 'main:projects' %}" class="text-gray-600 hover:text-gray-800">Projects</a>
+                <a href="{% url 'main:contact' %}" class="text-gray-600 hover:text-gray-800">Contact</a>
             </div>
         </div>
     </nav>
