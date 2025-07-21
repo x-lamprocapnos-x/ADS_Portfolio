@@ -3,4 +3,4 @@ from django.contrib import admin
 from .models import Project
 
 # Register your models here.
-admit.site.register(Project)
+admin.site.register(Project)
