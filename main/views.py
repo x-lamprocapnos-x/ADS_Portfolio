@@ -37,4 +37,5 @@ def contact(request):
     return render(request, 'main/contact.html', {'form': form})
 
 def projects(request):
-    return render(request, 'main/projects.html')
+    all_projects = Project.object.all()
+    return render(request, 'main/projects.html', {'projects': all_projects})
