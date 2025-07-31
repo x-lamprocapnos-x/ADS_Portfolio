@@ -1,3 +1,5 @@
+<!--main/templates/main/contact.html-->
+
 {% extends 'base.html' %}
 {% load static %}
 
@@ -5,32 +7,47 @@
 
 {% block content %}
 <section class="max-w-x1 mx-auto px-4 py-12">
-    <h1 class="text-3x1 font-bold mb-6 text-center">Contact Me</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center">Contact Me</h1>
 
-    <form method="POST" class="space-y-4">
+    <form method="POST" class="space-y-4 max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md">
         {% csrf_token %}
         {{ form.non_field_errors }}
 
-        <div>
+        <!-- Name -->
+        <div class="mb-4">
             {{ form.name.label_tag }}
             {{ form.name }}
             {{ form.name.errors }}
         </div>
 
-        <div>
+        <!-- Email -->
+        <div class="mb-4">
             {{ form.email.label_tag }}
             {{ form.email }}
             {{ form.email.errors }}
         </div>
 
-        <div>
+        <!-- Message -->
+        <div class="mb-4">
             {{ form.message.label_tag}}
             {{ form.message }}
             {{ form.message.errors }}
         </div>
 
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Send</button>
+        <!-- CAPTCHA -->
+        <div class="mb-4">
+            <label for="id_captcha" class="block font-medium text-gray-700">Security Check</label>
+            {{ form.captcha }}
+            {{ form.captcha.errors }}
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Send Message
+        </button>
     </form>
+
+    <!-- Load the reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <!-- Resume Download Button -->
     <div class="mt-8 text-center">\
