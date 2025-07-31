@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'main',
     'tailwind',
     'theme',
-    'django_browser_reload', 
+    'django_browser_reload',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,7 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 # Media files (user uploaded data ie. case study images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Django-Recaptcha config
+RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
