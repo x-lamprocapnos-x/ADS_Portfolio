@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
-from.forms import ContactForm
+from .forms import ContactForm
+from .models import Project
 
 # Create your views here.
 
@@ -37,5 +38,9 @@ def contact(request):
     return render(request, 'main/contact.html', {'form': form})
 
 def projects(request):
-    all_projects = Project.object.all()
+    all_projects = Project.objects.all()
     return render(request, 'main/projects.html', {'projects': all_projects})
+
+def project_detail(request, slug):
+    project = get_object_or_404(Project, slug=slug)
+    return render(request, 'main/project_detail.html', {'project': project})
