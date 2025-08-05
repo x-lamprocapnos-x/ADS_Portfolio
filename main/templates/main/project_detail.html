@@ -1,0 +1,25 @@
+<!--main/templates/main/project_details.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+<section class="max-w-4x1 mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-4">{{ project.title }}</h1>
+    <img src="{{ project.img.url }}" alt="{{ project.title}}" class="mb-4 w-full rounded-lg">
+    <p class="mb-4">{{ project.description}}</p>
+    <div class="prose">{{ project.case_study|linebreaks }}</div>
+
+    <div class="mt-6 flex gap-4">
+        {% if project.github.url %}
+        <a href="{{ project.github_url }}" class="text-blue-600 underline" target="_blank">GitHub</a>
+        {% endif %}
+        {% if project.live_url %}
+        <a href="{{ project.live_url }}" class="text-blue-600 underline" target="_blank">Live Site</a>
+        {% endif %}
+    </div>
+
+</section>
+
+{% endblock %}
