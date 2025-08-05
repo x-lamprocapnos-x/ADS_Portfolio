@@ -1,3 +1,5 @@
+<!--main/templates/main/projects.html-->
+
 {% extends 'base.html' %}
 {% load static %}
 
@@ -8,7 +10,7 @@
     <h1 class="text-3xl font-bold mb-8 text-center">My Projects</h1>
 
     <div class="grid md:grid-cols-2 lg:grid-cold-3 gap-8">
-        {% project in projects %}
+        {% for project in projects %}
         <div class="bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
             <img src="{{ project.img.url }}" alt="{{ project.title}}" class="rounded-t-lg w-full h-48 object-cover">
             <div class="p-4">
@@ -17,8 +19,8 @@
                 <div class="flex justify-between items-center">
                     <a href="{{ project.github_url }}" target="_blank" class="text-blue-500 hover:underline">GitHub</a>
                     <a href="{{ project.live_url}}" target="_blank" class="text-green-500 hover:underline">Live</a>
-                    <a href="{{% url 'main:project_detail' project.slug %}}"
-                        class="text-purple-500 hover:underline">Case Study</a>
+                    <a href="{% url 'main:project_detail' project.slug %}" class="text-purple-500 hover:underline">Case
+                        Study</a>
                 </div>
             </div>
         </div>
