@@ -1,47 +1,45 @@
-# Python bytecode
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 
+# Django
+db.sqlite3
+db.sqlite3-journal
+media/
+
 # Environment variables
 .env
+*.env
 
 # Virtual environment
+venv/
+env/
 envs/
 .venv/
-.env/
 
-# Django SQLite database
-db.sqlite3
-
-# Django migrations (optional to ignore individual migration files, but keep __init__.py)# **Generally DO track migrations in version control.**
-# **Generally DO track migrations in version control.**
-# main/migrations/*.pyc
-# theme/migrations/*.pyc
-
-# Django secret key and environment variables
-.env
-
-# VSCode settings
-.vscode/
+# Static build artifacts
+staticfiles/
+**/staticfiles/admin/
 
 # Node/Tailwind
 node_modules
 theme/node_modules/
-theme/static/css/
-theme/static/js/
+theme/static/css/dist/
 
-# Logs
-*.log
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
 
-# Coverage
+# Tests / Coverage
 .Coverage
-coverage.xml
+coverage.*
 htmlcov/
 .pytest_cache/
-.mypy_cache/
+.tox/
 
-# Build artifacts
+# Packaging
 build/
 dist/
 *.egg-info/
