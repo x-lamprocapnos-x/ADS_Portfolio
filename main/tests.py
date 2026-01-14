@@ -6,40 +6,41 @@ from .forms import ContactForm
 
 # Create your tests here.
 
+# Override email backend for tests
+@override_settings(
+    EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend'
+)
+
 # Portfolio view/url tests
 class PortfolioViewTests(TestCase):
 
-    def setUp(self):
-        # Override email backend to locmem for all tests in this class
-        self.override = override_settings(
-            EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend'
-        )
-        self.override.enable()
-
-    def tearDown(self):
-        # Disable override after each test to avoid leakage into other tests
-        self.override.disable()
-
+    # About Url test
     def test_main_about_url_exists(self):
         response = self.client.get(reverse('main:about'))
         self.assertEqual(response.status_code, 200)
 
+    # Contact Url test
     def test_main_contact_url_exists(self):
         response = self.client.get(reverse('main:contact'))
         self.assertEqual(response.status_code, 200)
 
+    # Projects Url test
     def test_main_projects_url_exists(self):
         response = self.client.get(reverse('main:projects'))
         self.assertEqual(response.status_code, 200)
 
+class PortfolioTemplateTests(TestCase):
+    # About template test
     def test_about_template_used(self):
         response = self.client.get(reverse('main:about'))
         self.assertTemplateUsed(response, 'main/about.html')
 
+    # Contact template test
     def test_contact_template_used(self):
         response = self.client.get(reverse('main:contact'))
         self.assertTemplateUsed(response, 'main/contact.html')
 
+    # Projects template test
     def test_projects_template_used(self):
         response = self.client.get(reverse('main:projects'))
         self.assertTemplateUsed(response, 'main/projects.html')
@@ -48,6 +49,8 @@ class PortfolioViewTests(TestCase):
         response = self.client.get(reverse('main:contact'))
         self.assertContains(response, 'Download My Resume')
 
+class ContactFormSubmissionTests(TestCase):
+    # Valid form submission test
     def test_contact_form_valid_submission_sends_email(self):
         data = {
             'name': 'Test User',
@@ -59,6 +62,7 @@ class PortfolioViewTests(TestCase):
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn('Test User', mail.outbox[0].subject)
 
+    # Invalid form submission test
     def test_contact_form_invalid_submission_returns_error(self):
         data = { # Missing input fields
             'name': '',
@@ -74,7 +78,7 @@ class PortfolioViewTests(TestCase):
 
 # Portfolio form tests
 class ContactFormTests(TestCase):
-
+    # Test valid form data
     def test_contact_form_valid(self):
         form_data = {
             'name': 'Ashley',
@@ -83,7 +87,8 @@ class ContactFormTests(TestCase):
         }
         form = ContactForm(data=form_data)
         self.assertTrue(form.is_valid())
-
+    
+    # Test invalid form data
     def test_contact_form_invalid(self):
         form_data = {
             'name': '',
@@ -92,3 +97,4 @@ class ContactFormTests(TestCase):
         }
         form = ContactForm(data=form_data)
         self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors)

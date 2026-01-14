@@ -1,6 +1,7 @@
 # main/forms.py
 
 from django import forms
+from django.conf import settings
 from django_recaptcha.fields import ReCaptchaField
 
 class ContactForm(forms.Form):
@@ -16,4 +17,7 @@ class ContactForm(forms.Form):
         'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500',
         'placeholder': 'Your Message'
     }))
-    captcha = ReCaptchaField()
+
+    # Only include captcha if NOT testing
+    if not settings.TESTING:
+        captcha = ReCaptchaField()
