@@ -134,9 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Tailwind config
 TAILWIND_APP_NAME = 'theme'
 
-# Node/NPM config 
-NPM_BIN_PATH = 'C:/Program Files/nodejs/npm.cmd'
-
 # Email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
