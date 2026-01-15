@@ -128,7 +128,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'theme' / 'static',
-    BASE_DIR / 'main' / 'static',
     ] 
 STATIC_ROOT = BASE_DIR / 'staticfiles' # Directory where static files will be collected
 
