@@ -2,8 +2,16 @@ services:
 - type: web
   name: ads-portfolio
   env: python
-  pythonVersion: "3.12"
-  buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
-  startCommand: "gunicorn ADS_Portfolio.wsgi:application"
+  pythonVersion: 3.12
+
+  buildCommand: >
+    pip install -r requirements.txt &&
+    python manage.py tailwind install &&
+    python manage.py tailwind build &&
+    python manage.py collectstatic --noinput
+
+  startCommand: gunicorn ADS_Portfolio.wsgi:application
+  
+  
   region: ohio
   plan: free
