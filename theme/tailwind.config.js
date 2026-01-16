@@ -27,6 +27,13 @@ module.exports = {
         '../../**/templates/**/*.html',
 
         /**
+         * Ignore any HTML files in node_modules folder.
+         * You can remove the following line if you don't use HTML files in
+         * node_modules folder.
+         */
+        '!../../**/node_modules',
+
+        /**
          * JS: If you use Tailwind CSS in JavaScript, uncomment the following lines and make sure
          * patterns match your project structure.
          */
