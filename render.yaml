@@ -5,8 +5,10 @@ services:
     runtime: python-3.11.11
     buildCommand: >
       pip install -r requirements.txt &&
-      python manage.py tailwind install &&
-      python manage.py tailwind build &&
+      cd theme &&
+      npm install &&
+      npm run build &&
+      cd .. &&
       python manage.py collectstatic --noinput
     startCommand: gunicorn ADS_Portfolio.wsgi:application
     region: ohio
