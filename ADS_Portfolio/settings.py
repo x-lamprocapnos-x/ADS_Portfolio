@@ -42,9 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'tailwind',
-    'theme',
-    'django_browser_reload',
     'django_recaptcha',
 ]
 
@@ -57,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_browser_reload.middleware.BrowserReloadMiddleware'
 ]
 
 ROOT_URLCONF = 'ADS_Portfolio.urls'
@@ -124,20 +120,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# Directory for static files during development
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    BASE_DIR / 'theme' / 'static',
-    ] 
 STATIC_ROOT = BASE_DIR / 'staticfiles' # Directory where static files will be collected
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Tailwind config
-TAILWIND_APP_NAME = 'theme'
 
 # Email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
