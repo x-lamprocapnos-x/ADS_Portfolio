@@ -2,7 +2,7 @@ services:
   - type: web
     name: ads-portfolio
     env: python
-    runtime: python-3.11
+
     buildCommand: >
       pip install -r requirements.txt &&
       cd theme &&
@@ -10,6 +10,12 @@ services:
       npm run build &&
       cd .. &&
       python manage.py collectstatic --noinput
+
     startCommand: gunicorn ADS_Portfolio.wsgi:application
+
     region: ohio
     plan: free
+
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
