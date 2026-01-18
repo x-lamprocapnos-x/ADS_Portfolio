@@ -3,8 +3,8 @@
   "version": "3.6.0",
   "description": "",
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./static/css/styles.css --minify",
-    "dev": "tailwindcss -i ./src/styles.css -o ./static/css/styles.css -w"
+    "build": "tailwindcss -i ./src/styles.css -o ./static/theme/css/styles.css --minify",
+    "dev": "tailwindcss -i ./src/styles.css -o ./static/theme/css/styles.css -w"
   },
   "keywords": [],
   "author": "",
