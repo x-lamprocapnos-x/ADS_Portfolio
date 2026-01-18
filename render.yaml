@@ -2,7 +2,7 @@ services:
   - type: web
     name: ads-portfolio
     env: python
-    nodeVersion: 24.x # adding to ensure Node.js is installed
+    nodeVersion: 24 # adding to ensure Node.js is installed
 
     buildCommand: >
       pip install -r requirements.txt &&
