@@ -151,3 +151,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Whitenoise config
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+# Whitenoise finders
+WHITENOISE_USE_FINDERS = True
