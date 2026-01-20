@@ -8,7 +8,7 @@ from .forms import ContactForm
 
 # Override email backend for tests
 @override_settings(
-    EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend'
+    EMAIL_BACKEND='anymail.backends.mailgun.EmailBackend'
 )
 
 # Portfolio view/url tests
