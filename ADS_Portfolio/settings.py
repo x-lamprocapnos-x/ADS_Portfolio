@@ -138,13 +138,12 @@ EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
 ANYMAIL = {
     'MAILGUN_API_KEY': os.getenv('MAILGUN_API_KEY'),
     'MAILGUN_SENDER_DOMAIN': os.getenv('MAILGUN_DOMAIN'),
+    'MAILGUN_DEBUG': DEBUG, # Print Mailgun API requests in console if in debug mode
 }
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 SERVER_EMAIL = os.getenv('SERVER_EMAIL')
 
-# Mailgun API 
-ANYMAIL['MAILGUN_API_URL'] = 'https://api.mailgun.net/v3/' + os.getenv('MAILGUN_DOMAIN')
-ANYMAIL['MAILGUN_DEBUG'] = True
+
 
 # Django-Recaptcha config
 RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
