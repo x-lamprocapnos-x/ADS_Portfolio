@@ -142,6 +142,10 @@ ANYMAIL = {
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 SERVER_EMAIL = os.getenv('SERVER_EMAIL')
 
+# Mailgun API 
+ANYMAIL['MAILGUN_API_URL'] = 'https://api.mailgun.net/v3/' + os.getenv('MAILGUN_DOMAIN')
+ANYMAIL['MAILGUN_DEBUG'] = True
+
 # Django-Recaptcha config
 RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
@@ -159,3 +163,19 @@ STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 # Whitenoise finders
 WHITENOISE_USE_FINDERS = True
+
+# Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'ERROR',
+    },
+}
+
