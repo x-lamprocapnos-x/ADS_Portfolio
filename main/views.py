@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
+import logging
 from django.conf import settings
 from .forms import ContactForm
 from .models import Project
+
+# Set up logger
+logging = logging.getLogger(__name__)
 
 # Create your views here.
 
@@ -22,16 +26,22 @@ def contact(request):
             subject = f'New Contact Form Submission from {name}'
             full_message = f'From {name} <{email}>\n\nMessage:\n{message}'
 
-            # Send email to your gmail
-            send_mail(
-                subject,
-                full_message,
-                settings.EMAIL_HOST_USER, # From
-                [settings.EMAIL_HOST_USER], # To
-                fail_silently=False,
-            )
-
-            return render(request, 'main/contact_success.html', {'name': name})
+            try:  
+                # Send email to your gmail
+                send_mail(
+                    subject,
+                    full_message,
+                    settings.EMAIL_HOST_USER, # From
+                    [settings.EMAIL_HOST_USER], # To
+                    fail_silently=False,
+                )
+                return render(request, 'main/contact_success.html', {'name': name})
+            except Exception as e:
+                logging.error(f'Error sending contact form email: {e}')
+                return render(request, 'main/contact.html', {
+                    'form': form,
+                    'error_message': 'There was an error sending your message. Please try again later.'
+                })
     else:
         form = ContactForm()
 
