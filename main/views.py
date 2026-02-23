@@ -32,7 +32,7 @@ def contact(request):
                     subject,
                     full_message,
                     settings.DEFAULT_FROM_EMAIL, # From email 
-                    [settings.DEFAULT_FROM_EMAIL], # To email
+                    [settings.CONTACT_TO_EMAIL], # To email
                     fail_silently=False,
                 )
                 return render(request, 'main/contact_success.html', {'name': name})
